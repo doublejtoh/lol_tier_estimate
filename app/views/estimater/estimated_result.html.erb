@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 
+
 <html>
     
     <meta charset ="utf-8">
     <style>
+       .tier_result{
+           border: 3px green;
+           
+       }
        
-        
+      
     </style>
     <head>
         
         
     </head>
     <body>
-        <div align="center">
+        <div class = "tier_result" align="center">
         <h1><%=@name%>님의 티어는 ... </h1>
          <img src='<%=@tierimg_url%>'><br>
          
@@ -22,7 +27,9 @@
         <!-- <input type="text"> -->
         
          <a href='<%=@urlforFowSearch%>'>실제 나의 티어 보기</a> 
-        
+         <h5><%=@most1champion%>를 제일 많이 하셨네요. <%=@matchnum%>판 하셨는데 승률이 <%=@winning_possibility%>이시네요.</h5>
+         <a href='<%=@urlforyoutubelecture%>'>모스트 1 챔피언 강의듣고 승률올리세요!</a> 
+         
         </div>
     </body>
     

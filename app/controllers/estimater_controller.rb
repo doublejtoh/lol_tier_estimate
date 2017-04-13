@@ -1,4 +1,9 @@
+# encoding: UTF-8
+
 class EstimaterController < ApplicationController
+    
+    require 'nokogiri'
+    require 'open-uri'
     
     def index
         
@@ -60,9 +65,26 @@ class EstimaterController < ApplicationController
         end
         
         @name = params[:name]
-        @advice= advice
-        @urlforFowSearch = "http://fow.kr/find/"+params[:name]
         
+        @advice= advice
+        lol_id=params[:name]
+        lol_id = lol_id.encode!(Encoding::UTF_8)
+        
+        urlforFowSearch = "http://fow.kr/find/"+params[:name]
+        @urlforFowSearch =urlforFowSearch
+        
+        page = Nokogiri::HTML(open(@urlforFowSearch)) 
+        
+        most1champion = page.css('td')[0].text
+        matchnum =page.css('td')[1].text
+        winning_possibility =page.css('td')[2].text
+        
+        
+        @most1champion =most1champion
+        urlforyoutubelecture ="https://www.youtube.com/results?search_query="+most1champion+"강의"
+        @matchnum = matchnum # 모 1판수
+        @winning_possibility = winning_possibility #모 1승률
+        @urlforyoutubelecture =urlforyoutubelecture #모 1챔프 강의 검색
     end
     
 end

@@ -13,6 +13,12 @@
             font-size="50px"
             
         }
+         body{
+     background: url(https://search.pstatic.net/sunny/?src=http%3A%2F%2Fddragon.leagueoflegends.com%2Fcdn%2Fimg%2Fchampion%2Fsplash%2FEzreal_2.jpg&type=b400) no-repeat center center fixed; 
+   
+      background-size: cover;
+        
+}
         
     </style>
     
@@ -33,12 +39,15 @@
         <div align="center">
         <h1>당신의 티어는..!</h1>
         
+        <br>
         
             <form action="/estimate/estimated_result" method="get">
-            <input type="text" placeholder = "롤아이디 입력좀요!" name="name">
+                
+            <input type="text" placeholder = "롤아이디 입력!" name="name">
+            
         
          <input type="submit"> 
-         
+         <h2>* 있는 아이디를 입력하셔야합니다.영어로,공백없이ex)hide on bush (x) hideonbush(o) *</h2>
          
         </form>
          <img src='<%=@tierimg_url%>'><br>
